@@ -79,3 +79,6 @@
 
  <p>첫째 줄에 분수를 출력한다.</p>
 
+
+### 풀이 참고
+![image](https://github.com/dakaeng/Baekjoon/assets/53594853/4782b6f6-14be-42b0-841c-b128699de6fc)
