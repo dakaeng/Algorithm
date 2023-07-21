@@ -2,7 +2,6 @@ M = int(input())
 N = int(input())
 
 nums = []
-count = 0
 for i in range(M, N+1) :
     if i == 1 :
         continue
@@ -15,7 +14,6 @@ for i in range(M, N+1) :
         j += 1
     if result :
         nums.append(i)
-        count += 1
 if len(nums) > 0 :
     print(sum(nums))
     print(nums[0])
