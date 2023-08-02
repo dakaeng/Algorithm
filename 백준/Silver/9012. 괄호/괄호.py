@@ -1,18 +1,16 @@
-import sys
+T = int(input())
 
-T = int(sys.stdin.readline())
 for _ in range(T) :
-    test_data = list(sys.stdin.readline().rstrip())
     count = 0
-    for i in test_data :
-        if i == "(" :
+    string = list(input())
+    for i in string :
+        if i == '(' :
             count += 1
-        elif i == ")" :
+        else :
             count -= 1
         if count < 0 :
             break
     if count == 0 :
-        answer = "YES"
+        print('YES')
     else :
-        answer = "NO"
-    print(answer)
+        print('NO')
