@@ -1,20 +1,19 @@
 N = int(input())
-As = list(set(map(int, input().split())))
-As.sort()
-M = int(input())
 nums = list(map(int, input().split()))
+M = int(input())
+check = list(map(int, input().split()))
+nums.sort()
 
-for num in nums :
-    answer = 0
-    l = 0
-    u = len(As) - 1
-    while l <= u :
-        mid = (l+u) // 2
-        if num == As[mid] :
-            answer = 1
-            break
-        elif num < As[mid] :
-            u = mid - 1
-        else :
-            l = mid + 1
-    print(answer)
+for c in check :
+  start, end = 0, N - 1
+  answer = 0
+  while (start <= end) :
+    mid = (start + end) // 2
+    if nums[mid] < c :
+      start = mid + 1
+    elif nums[mid] > c :
+      end = mid - 1
+    else :
+      answer = 1
+      break
+  print(answer)
