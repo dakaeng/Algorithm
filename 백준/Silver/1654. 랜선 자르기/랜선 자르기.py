@@ -1,15 +1,18 @@
 K, N = map(int, input().split())
-length = []
+lists = []
 for _ in range(K) :
-    length.append(int(input()))
+  lists.append(int(input()))
 
-start = 1
-end = max(length)
+start, end = 1, max(lists)
+result = 0
 while (start <= end) :
-    mid = (start + end) // 2
-    count = [(i // mid) for i in length]
-    if sum(count) < N :
-        end = mid - 1
-    else :
-        start = mid + 1
-print(end)
+  mid = (start + end) // 2
+  count = 0
+  for i in lists :
+    count += (i // mid)
+  if count < N :
+    end = mid - 1
+  else :
+    result = mid
+    start = mid + 1
+print(result)
