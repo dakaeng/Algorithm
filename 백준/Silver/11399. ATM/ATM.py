@@ -1,10 +1,9 @@
 N = int(input())
 P = list(map(int, input().split()))
-
 P.sort()
-time_sum = 0
-time = 0
-for p in P :
-    time += p
-    time_sum += time
-print(time_sum)
+sums = []
+temp = 0
+for t in P :
+  temp += t
+  sums.append(temp)
+print(sum(sums))
