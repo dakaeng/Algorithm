@@ -1,18 +1,22 @@
+import sys
+input = sys.stdin.readline
+
 N = int(input())
 length = list(map(int, input().split()))
 price = list(map(int, input().split()))
 
 price = price[:-1]
 total = 0
-dist = sum(length)
-for i in range(len(length)) :
-  if dist == 0 :
-    break
-  else :
-    if price[i] == min(price[i:]) :
-      total += price[i] * sum(length[i:])
-      dist -= sum(length[i:])
-    else :
-      total += price[i] * length[i]
-      dist -= length[i]
+min_prices = min(price)
+
+if price[0] == min_prices :
+  sum_length = sum(length)
+  total += price[0] * sum_length
+  
+else :
+  total += price[0] * length[0]
+  for i in range(1, N-1) :
+    if price[i-1] < price[i] :
+      price[i] = price[i-1]
+    total += price[i] * length[i]
 print(total)
