@@ -10,16 +10,14 @@ for _ in range(M) :
   graph[v].append(u)
 
 def dfs(v) :
-  global count
-  visited[v] = True
-  answer[v] = count
+  global count  # 함수 밖에서 선언한 count를 함수 내에서도 사용
+  answer[v] = count  # v번째 index에 순서 저장
   graph[v].sort(reverse = True)
   for i in graph[v] :
-    if not visited[i] :
+    if answer[i] == 0 :
       count += 1
       dfs(i)
 
-visited = [False] * (N+1)
 answer = [0] * (N+1)
 count = 1
 dfs(R)
