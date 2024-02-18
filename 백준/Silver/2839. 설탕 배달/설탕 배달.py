@@ -1,16 +1,15 @@
 N = int(input())
-count = 0
-while True :
-    if N <= 0:
-        break
-    if N % 5 != 0 :
-        N -= 3
-        count += 1
-    else :
-        count += (N // 5)
-        N = 0
+
+answer = 0
+while (N > 0) :
+  if N % 5 == 0 :
+    answer += N // 5
+    N = 0
+  else :
+    answer += 1
+    N -= 3  # 5의 배수가 될 때까지 3씩 빼준다고 생각하면 됨
     
-if N != 0 :
-    print(-1)
+if N == 0 :
+  print(answer)
 else :
-    print(count)
+  print(-1)
