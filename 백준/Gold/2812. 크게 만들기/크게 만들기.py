@@ -1,16 +1,17 @@
 N, K = map(int, input().split())
-number = list(input())
-number = [int(i) for i in number]
+num = input()
 
-answer = []  # 지우지 않을 숫자들 저장
+num = [int(i) for i in num]
+stack = []
+count = 0  # 제거한 숫자의 개수
 
 for i in range(N) :
-  while (answer and answer[-1] < number[i] and K > 0) :
-    answer.pop()
-    K -= 1
-  answer.append(number[i])
+  while (stack and stack[-1] < num[i] and count < K) :
+    stack.pop()
+    count += 1
+  stack.append(num[i])
 
-if K == 0 :
-  print(''.join(map(str, answer)))
+if count == K :
+  print(''.join([str(i) for i in stack]))
 else :
-  print(''.join(map(str, answer[:-K])))
+  print(''.join([str(i) for i in stack[:-(K-count)]]))
